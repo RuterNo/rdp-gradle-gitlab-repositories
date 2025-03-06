@@ -1,6 +1,3 @@
-Certainly! I'll create a README for your project based on the provided code. This README will explain the purpose of the project, how to use it, and provide some examples.
-
-```markdown
 # RDP Gradle GitLab Repositories Plugin
 
 ## Overview
