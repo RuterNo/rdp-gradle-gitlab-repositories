@@ -4,7 +4,7 @@ plugins {
     `maven-publish`
 }
 
-group = "no.ruter.gradle.plugins"
+group = "no.ruter.gradle"
 version = "0.0.1"
 
 repositories {
@@ -28,10 +28,13 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 }
 
 gradlePlugin {
+    website.set("https://github.com/RuterNo/rdp-gradle-gitlab-repositories")
+    vcsUrl.set("https://github.com/RuterNo/rdp-gradle-gitlab-repositories")
     plugins {
         create("rdpGradleGitlabRepositories") {
-            id = "no.ruter.gradle.plugin.rdp-gradle-gitlab-repositories"
+            id = "no.ruter.gradle.rdp-gradle-gitlab-repositories"
             implementationClass = "no.ruter.gradle.RdpGradleGitlabRepositoriesPlugin"
+            description = "A plugin that add extension for using GitLab repositories"
         }
     }
 }

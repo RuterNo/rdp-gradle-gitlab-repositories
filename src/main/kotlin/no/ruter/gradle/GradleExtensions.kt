@@ -12,6 +12,7 @@ class GradleExtensions private constructor() {
             project: Project,
             groupId: String,
             groupName: String,
+            includeGroups: Set<String>? = null,
         ) {
             maven { repo ->
                 repo.name = "gitLabGroup${groupName}Maven"
@@ -23,8 +24,12 @@ class GradleExtensions private constructor() {
                         "Missing required Gradle property (~/.gradle/gradle.properties): gitLabPrivateToken",
                     )
                 }
-                repo.content {
-                    it.includeGroupByRegex("no\\.ruter\\..*")
+                if (!includeGroups.isNullOrEmpty()) {
+                    repo.content {
+                        includeGroups.forEach { group ->
+                            it.includeGroupByRegex(group)
+                        }
+                    }
                 }
                 repo.authentication {
                     it.register("header", HttpHeaderAuthentication::class.java)
