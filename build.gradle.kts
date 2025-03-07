@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "no.ruter.gradle"
-version = "0.0.3"
+version = "0.0.4"
 
 repositories {
     mavenCentral()
@@ -33,7 +33,8 @@ gradlePlugin {
     vcsUrl.set("https://github.com/RuterNo/rdp-gradle-gitlab-repositories")
     plugins {
         create("rdpGradleGitlabRepositories") {
-            id = "no.ruter.gradle.rdp-gradle-gitlab-repositories"
+            id = "io.blacksab.rdp-gradle-gitlab-repositories"
+//            id = "no.ruter.gradle.rdp-gradle-gitlab-repositories"
             displayName = "RDP Gradle Git repositories"
             implementationClass = "no.ruter.gradle.RdpGradleGitlabRepositoriesPlugin"
             description = "A plugin that add extension for using GitLab repositories"
